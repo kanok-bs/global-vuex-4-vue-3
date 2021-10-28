@@ -1,0 +1,76 @@
+<script setup lang="ts">
+import { useStore } from "vuex";
+import { reactive,computed  } from "vue";
+const store = useStore();
+
+console.log(store.getters.GET_UNIVARSITIES);
+const univarsitiesList = computed(() =>{
+    return reactive(store.getters.GET_UNIVARSITIES);
+})
+
+const fetchUnivarsity = (event:any) =>{
+    const value = event.target.value;
+    store.dispatch("FETCH_UNIVARSITIES",value).univarsities;
+}
+</script>
+
+<template>
+  <div id="center">
+    <label  style="text-align:center; margin-left:30px"> Country Name</label>
+    <input type="text" @change="fetchUnivarsity($event)" />
+  </div>
+  <br>
+  <table id="univarsities">
+    <thead>
+      <tr >
+        <th style="text-align: center">Country Name</th>
+        <th style="text-align: center">Univarsity Name</th>
+        <th style="text-align: center">Domain Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(row,key) in univarsitiesList" :key="key">
+        <td>{{row.country}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.domains[0]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</template>
+
+<style>
+#center {
+margin-left: 40%;
+  background-color: rgb(213, 213, 216);
+  width: 170px;
+  height: 60px;
+
+}
+#univarsities {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#univarsities td,
+#univarsities th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#univarsities tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#univarsities tr:hover {
+  background-color: #ddd;
+}
+
+#univarsities th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+</style>
