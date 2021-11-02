@@ -5,7 +5,7 @@ const store = useStore();
 const router = useRouter();
 const Login = () => {
   store.dispatch("ADD_AUTHENTICATE_STATUS", true).authinticate;
-  router.push({ name: "Univarsities" });
+  router.push({ name: "Home" });
 };
 </script>
 

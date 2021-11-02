@@ -1,18 +1,12 @@
+<script lang="ts" setup>
+import NavBar from "../views/NavBar.vue";
+</script>
+
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div style="min-width: 20%;max-width: 20%;float:left">
+    <NavBar></NavBar>
+  </div>
+  <div style="min-width:80%;max-width:80%;;float:right">
+    <router-view></router-view>
   </div>
 </template>
-
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class Home extends Vue {}
-</script>

@@ -1,2 +1,4 @@
 export const SET_UNIVARSITIES = "SET_UNIVARSITIES";
 export const SET_AUTHENTICATE_STATUS = "SET_AUTHENTICATE_STATUS";
+export const SET_TASK = "SET_TASK";
+export const SET_POST = "SET_POST";
