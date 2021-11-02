@@ -10,20 +10,32 @@
     <router-link to="Post" class="link-dark rounded"
       >JSON PLACEHOLDER API</router-link
     >
+    <router-link to="Slot" class="link-dark rounded"
+      >SLOT</router-link
+    >
+    <router-link to="Slot" class="link-dark rounded"
+      >$EMIT</router-link
+    >
   </div>
 </template>
 <style scoped>
 .vertical-menu {
   height: 1000px;
   width: 240px;
+  min-height: 100vh;
+  /* background: brown; */
+  background-color: #eee;
 }
 
 .vertical-menu a {
-  background-color: #eee;
+    text-decoration: underline;
+  font-style: italic;
+  /* font-weight:bold; */
+  /* background-color: #eee; */
   color: black;
   display: block;
   padding: 12px;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 .vertical-menu a:hover {

@@ -16,13 +16,13 @@ const fetchUnivarsity = (event:any) =>{
 
 <template>
   <div id="center">
-    <label  style="text-align:center; margin-left:30px"> Country Name</label>
+    <label  style="text-align:center; margin-left:30px;font-style:italic"> Country Name</label>
     <input type="text" @change="fetchUnivarsity($event)" />
   </div>
   <br>
   <table id="univarsities">
     <thead>
-      <tr >
+      <tr>
         <th style="text-align: center">Country Name</th>
         <th style="text-align: center">Univarsity Name</th>
         <th style="text-align: center">Domain Name</th>
@@ -50,6 +50,7 @@ margin-left: 40%;
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  font-style: italic;
 }
 
 #univarsities td,
@@ -70,7 +71,7 @@ margin-left: 40%;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04aa6d;
+  background-color: blue;
   color: white;
 }
 </style>

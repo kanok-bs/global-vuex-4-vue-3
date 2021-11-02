@@ -12,7 +12,7 @@ const Login = () => {
 <template>
   <div>
     <form @submit.prevent="Login">
-      <div class="container">
+      <div class="container" style="margin:0px 400px">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" />
         <label for="psw"><b>Password</b></label>

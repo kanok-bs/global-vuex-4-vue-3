@@ -1,3 +1,8 @@
 <template>
-    <h1>Welcome To DashBoard</h1>
+    <h1 class="style">Welcome To DashBoard</h1>
 </template>
+<style scoped>
+.style{
+    font-style: italic;
+}
+</style>
