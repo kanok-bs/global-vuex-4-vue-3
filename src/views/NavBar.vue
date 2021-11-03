@@ -16,6 +16,9 @@
     <router-link to="Slot" class="link-dark rounded"
       >$EMIT</router-link
     >
+    <router-link to="Dictionary" class="link-dark rounded"
+      >DICTIONARY APP</router-link
+    >
   </div>
 </template>
 <style scoped>

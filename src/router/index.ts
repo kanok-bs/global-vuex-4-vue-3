@@ -58,6 +58,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/Slot.vue"),
       },
+      {
+        path: "/dictionary",
+        name: "Dictionary",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/Dictionary.vue"),
+      },
     ],
   },
   {
