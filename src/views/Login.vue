@@ -4,7 +4,7 @@ import { useStore } from "vuex";
 const store = useStore();
 const router = useRouter();
 const Login = () => {
-  store.dispatch("ADD_AUTHENTICATE_STATUS", true).authinticate;
+  store.dispatch("ADD_AUTHENTICATE_STATUS", true);
   router.push({ name: "Home" });
 };
 </script>
@@ -12,7 +12,7 @@ const Login = () => {
 <template>
   <div>
     <form @submit.prevent="Login">
-      <div class="container" style="margin:0px 400px">
+      <div class="container">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" />
         <label for="psw"><b>Password</b></label>
@@ -23,8 +23,11 @@ const Login = () => {
   </div>
 </template>
 <style scoped>
-form {
-  border: 3px solid #f1f1f1;
+
+.container{
+  left: 20%;
+  right: 20%;
+  position: absolute;
 }
 
 input[type="text"],

@@ -1,6 +1,7 @@
 import { SET_UNIVARSITIES } from "../mutation-types";
 import { FETCH_UNIVARSITIES } from "../action-types";
 import { GET_UNIVARSITIES } from "../getter-types";
+import { UNIVARSITY_API } from "../api";
 import axios from "axios";
 
 export const state = () => ({
@@ -19,10 +20,12 @@ export const mutations = {
 export const actions = {
   async [FETCH_UNIVARSITIES]({ commit }: { commit: any }, searchParam: any) {
     await axios
-      .get(`http://universities.hipolabs.com/search?country=${searchParam}`)
+      .get(`${UNIVARSITY_API}${searchParam}`)
       .then((response: any) => {
-        console.log(response.data);
         commit("SET_UNIVARSITIES", response.data);
-      });
+      }).catch((error: any) => {
+        console.log(error);
+      }
+      );
   },
 };

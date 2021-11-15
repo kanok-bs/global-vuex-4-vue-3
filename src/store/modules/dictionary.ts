@@ -19,10 +19,12 @@ export const mutations = {
   },
 };
 export const actions = {
-  async [FETCH_DICTIONARY]({ commit }: { commit: any }, searchValue:string) {
-    await axios.get<Dictionary[]>(`${DICTIONARY_API}${searchValue}`).then((response: any) => {
-      const data: [Dictionary] = response.data;
-      commit("SET_DICTIONARY", data);
-    });
+  async [FETCH_DICTIONARY]({ commit }: { commit: any }, searchValue: string) {
+    await axios
+      .get<Dictionary[]>(`${DICTIONARY_API}${searchValue}`)
+      .then((response: any) => {
+        const data: [Dictionary] = response.data;
+        commit("SET_DICTIONARY", data);
+      });
   },
 };

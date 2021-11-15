@@ -30,8 +30,8 @@
 
 <script lang="ts" setup>
 import { useStore } from "vuex";
-import { ref, reactive, computed } from "vue";
-
+import { ref, reactive, computed,inject } from "vue";
+const loader = inject("loading");
 const store = useStore();
 const searchVal = ref("" as string);
 console.log(store.getters.GET_DICTIONARY);
@@ -39,7 +39,10 @@ const dictionaryWord = computed(() => {
   return reactive(store.getters.GET_DICTIONARY);
 });
 const fetchDictionaryData = (event: any) => {
-  store.dispatch("FETCH_DICTIONARY", searchVal.value).dictionary;
+   loader.value = true;
+  store.dispatch("FETCH_DICTIONARY", searchVal.value).then((response:any) =>{
+    loader.value = false;
+  });
 };
 </script>
 <style scoped>

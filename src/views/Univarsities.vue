@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useStore } from "vuex";
-import { reactive, computed } from "vue";
+import { reactive, computed, inject } from "vue";
 import useLoading from "vue-loading-overlay";
+const loader = inject("loading");
 
 const store = useStore();
 
@@ -14,20 +15,26 @@ const univarsitiesList = computed(() => {
 });
 
 const fetchUnivarsity = (event: any) => {
-  // useLoading.show({
-  //   // Optional parameters
-  // });
+  loader.value = true;
   const value = event.target.value;
-  store.dispatch("FETCH_UNIVARSITIES", value).univarsities;
+  store
+    .dispatch("FETCH_UNIVARSITIES", value)
+    .then((response) => {
+      console.log("-------->response", response);
+      loader.value = false;
+    })
+    .catch((err) => {
+      console.log("-------->error", err);
+    });
 };
 </script>
 
 <template>
-  <div id="center">
-    <label style="text-align: center; margin-left: 30px; font-style: italic">
+  <div>
+    <label class="inline">
       Country Name</label
     >
-    <input type="text" @change="fetchUnivarsity($event)" />
+    <input class="inline" placeholder="put your country name here" type="text" @change="fetchUnivarsity($event)" />
   </div>
   <br />
   <table id="univarsities">
@@ -49,11 +56,18 @@ const fetchUnivarsity = (event: any) => {
 </template>
 
 <style>
+label{
+  color: blue;
+}
 #center {
   margin-left: 40%;
   background-color: rgb(213, 213, 216);
   width: 170px;
   height: 60px;
+}
+.inline{
+  margin: 10px;
+  display: inline;
 }
 #univarsities {
   font-family: Arial, Helvetica, sans-serif;

@@ -1,10 +1,19 @@
 <script lang="ts" setup>
-import { computed, reactive, onMounted } from "vue";
+import { computed, reactive, onMounted, inject } from "vue";
 import { useStore } from "vuex";
+const loader = inject("loading");
 const store = useStore();
 onMounted(() => {
-  // return reactive(store.getters.FETCH_POST);
-  store.dispatch("FETCH_POST").post;
+  loader.value = true;
+  store
+    .dispatch("FETCH_POST")
+    .then((response) => {
+      console.log("-------->response", response);
+      loader.value = false;
+    })
+    .catch((err) => {
+      console.log("-------->error", err);
+    });
 });
 const postList = computed(() => {
   return reactive(store.getters.GET_POST);
